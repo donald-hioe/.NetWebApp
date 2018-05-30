@@ -22,7 +22,7 @@ namespace practicum_webshop
     /// </summary>
     public partial class Window2 : Window
     {
-
+        Constants c = new Constants();
         string ValueFromLogin;
         public Window2()
         {
@@ -51,8 +51,7 @@ namespace practicum_webshop
             double price = 0.0;
             double currentCash = 0.0;
             //string value = null;
-            string conString = "Server=localhost;Database=webshop;Uid=donald;Pwd=Niek02102004;";
-            MySqlConnection con = new MySqlConnection(conString);
+            MySqlConnection con = new MySqlConnection(c.dbConnection);
 
             con.Open();
             MySqlCommand cmd = new MySqlCommand("select amount, price from product where name='" + Cart.Items[0] + "';", con);
@@ -106,8 +105,7 @@ namespace practicum_webshop
         }
         private void Refresh(object sender, RoutedEventArgs e)
         {
-            string conString = "Server=localhost;Database=webshop;Uid=donald;Pwd=Niek02102004;";
-            MySqlConnection con = new MySqlConnection(conString);
+            MySqlConnection con = new MySqlConnection(c.dbConnection);
 
             con.Open();
             MySqlCommand cmd = new MySqlCommand("SELECT * from product where amount >= 0;", con);
@@ -128,8 +126,7 @@ namespace practicum_webshop
         private void WindowLoaded(object sender, RoutedEventArgs e)
         {
             Welkom.Content = "Welkom: " + ValueFromLogin;
-            string conString = "Server=localhost;Database=webshop;Uid=donald;Pwd=Niek02102004;";
-            MySqlConnection con = new MySqlConnection(conString);
+            MySqlConnection con = new MySqlConnection(c.dbConnection);
 
             con.Open();
             MySqlCommand cmd = new MySqlCommand("SELECT * from product where amount > 0;", con);
