@@ -5,12 +5,6 @@ VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "practicum webshop", "practicum webshop\practicum webshop.csproj", "{78DD0C58-DEE5-4D10-99C7-1A0B954274B0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DionysosWebapp", "..\..\..\Documents\dionysos\DionysosWebapp\DionysosWebapp\DionysosWebapp.csproj", "{284476E5-91C4-440D-8AB6-DF3953992CDF}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DionysosData", "..\..\..\Documents\dionysos\DionysosWebapp\DionysosData\DionysosData.csproj", "{2F05A1AC-2A50-4271-A6F2-88FB822FA23E}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestApi", "..\..\..\Documents\dionysos\DionysosWebapp\TestApi\TestApi.csproj", "{26C0A5C9-D1BA-47B4-8E76-BEF14F14EE9A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,18 +15,6 @@ Global
 		{78DD0C58-DEE5-4D10-99C7-1A0B954274B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78DD0C58-DEE5-4D10-99C7-1A0B954274B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78DD0C58-DEE5-4D10-99C7-1A0B954274B0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{284476E5-91C4-440D-8AB6-DF3953992CDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{284476E5-91C4-440D-8AB6-DF3953992CDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{284476E5-91C4-440D-8AB6-DF3953992CDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{284476E5-91C4-440D-8AB6-DF3953992CDF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2F05A1AC-2A50-4271-A6F2-88FB822FA23E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2F05A1AC-2A50-4271-A6F2-88FB822FA23E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2F05A1AC-2A50-4271-A6F2-88FB822FA23E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2F05A1AC-2A50-4271-A6F2-88FB822FA23E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{26C0A5C9-D1BA-47B4-8E76-BEF14F14EE9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{26C0A5C9-D1BA-47B4-8E76-BEF14F14EE9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{26C0A5C9-D1BA-47B4-8E76-BEF14F14EE9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{26C0A5C9-D1BA-47B4-8E76-BEF14F14EE9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

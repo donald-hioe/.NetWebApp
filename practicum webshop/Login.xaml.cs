@@ -24,6 +24,8 @@ namespace practicum_webshop
     /// </summary>
     public partial class MainWindow : Window
     {
+        Constants c = new Constants();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -36,8 +38,7 @@ namespace practicum_webshop
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            string conString = "Server=localhost;Database=webshop;Uid=donald;Pwd=Niek02102004;";
-            MySqlConnection con = new MySqlConnection(conString);
+            MySqlConnection con = new MySqlConnection(c.dbConnection);
 
             con.Open();
             MySqlCommand cmd = new MySqlCommand("SELECT count(*) from customer where username='" + UsernameInput.Text + "' and password ='" + PasswordInput.Text +"';", con);

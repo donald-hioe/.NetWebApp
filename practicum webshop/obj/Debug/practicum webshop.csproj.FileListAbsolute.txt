@@ -20,3 +20,26 @@ C:\Users\donal\source\repos\practicum webshop\practicum webshop\bin\Debug\Google
 C:\Users\donal\source\repos\practicum webshop\practicum webshop\obj\Debug\practicum webshop.csproj.CopyComplete
 C:\Users\donal\source\repos\practicum webshop\practicum webshop\obj\Debug\Store.g.cs
 C:\Users\donal\source\repos\practicum webshop\practicum webshop\obj\Debug\Store.baml
+C:\Users\Marc\Documents\GitHub\.NetWebApp\practicum webshop\obj\Debug\practicum webshop.csprojResolveAssemblyReference.cache
+C:\Users\Marc\Documents\GitHub\.NetWebApp\practicum webshop\obj\Debug\Login.g.cs
+C:\Users\Marc\Documents\GitHub\.NetWebApp\practicum webshop\obj\Debug\Register.g.cs
+C:\Users\Marc\Documents\GitHub\.NetWebApp\practicum webshop\obj\Debug\Store.g.cs
+C:\Users\Marc\Documents\GitHub\.NetWebApp\practicum webshop\obj\Debug\App.g.cs
+C:\Users\Marc\Documents\GitHub\.NetWebApp\practicum webshop\obj\Debug\practicum webshop_MarkupCompile.cache
+C:\Users\Marc\Documents\GitHub\.NetWebApp\practicum webshop\obj\Debug\practicum webshop_MarkupCompile.lref
+C:\Users\Marc\Documents\GitHub\.NetWebApp\practicum webshop\bin\Debug\practicum webshop.exe.config
+C:\Users\Marc\Documents\GitHub\.NetWebApp\practicum webshop\bin\Debug\practicum webshop.exe
+C:\Users\Marc\Documents\GitHub\.NetWebApp\practicum webshop\bin\Debug\practicum webshop.pdb
+C:\Users\Marc\Documents\GitHub\.NetWebApp\practicum webshop\bin\Debug\MySql.Data.dll
+C:\Users\Marc\Documents\GitHub\.NetWebApp\practicum webshop\bin\Debug\Google.Protobuf.dll
+C:\Users\Marc\Documents\GitHub\.NetWebApp\practicum webshop\bin\Debug\MySql.Data.xml
+C:\Users\Marc\Documents\GitHub\.NetWebApp\practicum webshop\obj\Debug\Login.baml
+C:\Users\Marc\Documents\GitHub\.NetWebApp\practicum webshop\obj\Debug\Register.baml
+C:\Users\Marc\Documents\GitHub\.NetWebApp\practicum webshop\obj\Debug\Store.baml
+C:\Users\Marc\Documents\GitHub\.NetWebApp\practicum webshop\obj\Debug\practicum webshop.g.resources
+C:\Users\Marc\Documents\GitHub\.NetWebApp\practicum webshop\obj\Debug\practicum_webshop.Properties.Resources.resources
+C:\Users\Marc\Documents\GitHub\.NetWebApp\practicum webshop\obj\Debug\practicum webshop.csproj.GenerateResource.cache
+C:\Users\Marc\Documents\GitHub\.NetWebApp\practicum webshop\obj\Debug\practicum webshop.csproj.CoreCompileInputs.cache
+C:\Users\Marc\Documents\GitHub\.NetWebApp\practicum webshop\obj\Debug\practicum webshop.csproj.CopyComplete
+C:\Users\Marc\Documents\GitHub\.NetWebApp\practicum webshop\obj\Debug\practicum webshop.exe
+C:\Users\Marc\Documents\GitHub\.NetWebApp\practicum webshop\obj\Debug\practicum webshop.pdb

@@ -22,6 +22,7 @@ namespace practicum_webshop
     /// </summary>
     public partial class Window1 : Window
     {
+        Constants c = new Constants();
         public Window1()
         {
             InitializeComponent();
@@ -52,8 +53,7 @@ namespace practicum_webshop
 
         private void Register_Click(object sender, RoutedEventArgs e)
         {
-            string conString = "Server=localhost;Database=webshop;Uid=donald;Pwd=Niek02102004;";
-            MySqlConnection con = new MySqlConnection(conString);           
+            MySqlConnection con = new MySqlConnection(c.dbConnection);           
 
             con.Open();
             MySqlCommand cmd = new MySqlCommand("SELECT count(*) from customer where username='" + UsernameInput.Text +"';", con);
@@ -65,6 +65,7 @@ namespace practicum_webshop
                 string query2 = "INSERT INTO customer (username, password, cash) VALUES('" + UsernameInput.Text + "','" + password.Content + "', 10.00);";
                 MySqlCommand cmd2 = new MySqlCommand(query2, con);
                 cmd2.ExecuteNonQuery();
+                MessageBox.Show("Account with name " + UsernameInput.Text + " has been created!");
             }
             else
             {
