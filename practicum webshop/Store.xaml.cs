@@ -23,6 +23,7 @@ namespace practicum_webshop
     public partial class Window2 : Window
     {
         Constants c = new Constants();
+
         string ValueFromLogin;
 
         public Window2()
@@ -41,12 +42,19 @@ namespace practicum_webshop
 
         private void Finish_Click(object sender, RoutedEventArgs e)
         {
-            int amount = 0;
-            double price = 0.0;
-            double currentCash = 0.0;
+            if (Cart.Items.IsEmpty)
+            {
+                MessageBox.Show("You cannot make a purchase without anything in your cart");
+                //Stop if there are no items to be purchased
+                return;
+            }
 
             MySqlConnection con = new MySqlConnection(c.dbConnection);
             con.Open();
+
+            int amount = 0;
+            double price = 0.0;
+            double currentCash = 0.0;
 
             MySqlCommand cmd = new MySqlCommand("select amount, price from product where name='" + Cart.Items[0] + "';", con);
             cmd.ExecuteNonQuery();
@@ -65,8 +73,6 @@ namespace practicum_webshop
             while (reader2.Read())
             {
                 currentCash = (reader2.GetDouble(0));
-                currentCash -= price;
-                string x = currentCash.ToString();
             }
             reader2.Close();
 
@@ -80,13 +86,14 @@ namespace practicum_webshop
             //Finalize purchase by updating database
             MySqlCommand cmd3 = new MySqlCommand("update webshop.product set amount =" + (amount - 1) + " where name = '"+ Cart.Items[0] + "'; ", con);
             cmd3.ExecuteNonQuery();
-            MySqlCommand cmd4 = new MySqlCommand("update webshop.customer set cash =" + currentCash + " where username = '" + ValueFromLogin + "'; ", con);                       
+            MySqlCommand cmd4 = new MySqlCommand("update webshop.customer set cash =" + (currentCash - price) + " where username = '" + ValueFromLogin + "'; ", con);                       
             cmd4.ExecuteNonQuery();
-            MySqlCommand cmd5 = new MySqlCommand("insert into webshop.purchases (customer, product) values ('" + ValueFromLogin + "', '" + Cart.Items[0] + "'); ", con);
+            MySqlCommand cmd5 = new MySqlCommand("insert into webshop.purchases (customer, product, date) values ('" + ValueFromLogin + "', '" + Cart.Items[0] + "', now()); ", con);
             cmd5.ExecuteNonQuery();
 
             //Update GUI
             Cash.Content = "€" + currentCash;
+            Cart.Items.Remove(Cart.Items[0]);
             MessageBox.Show("You succesfully made a purchase");
         }
 
@@ -95,8 +102,12 @@ namespace practicum_webshop
             var selectedItems = store.SelectedItems;
             if (store.SelectedIndex != -1)
             {
+                string product;
                 for (int i = selectedItems.Count - 1; i >= 0; i--)
-                    Cart.Items.Add(selectedItems[i]);
+                {
+                    product = selectedItems[i].ToString().Split(',').FirstOrDefault();
+                    Cart.Items.Add(product);
+                }
             }
             else
                 MessageBox.Show("Select the item you want to add to your cart first");
@@ -129,7 +140,7 @@ namespace practicum_webshop
                 string name = reader.GetString(0);
                 int amount = reader.GetInt32(1);
                 double price = reader.GetDouble(2);
-                store.Items.Add(name);
+                store.Items.Add(name + ", price: €" + price);
             }
             reader.Close();
         }
@@ -138,9 +149,9 @@ namespace practicum_webshop
         {
             Welkom.Content = "Welkom: " + ValueFromLogin;
             MySqlConnection con = new MySqlConnection(c.dbConnection);
-
             con.Open();
-            MySqlCommand cmd = new MySqlCommand("SELECT * from product where amount > 0;", con);
+
+            MySqlCommand cmd = new MySqlCommand("select * from product where amount > 0;", con);
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             
@@ -150,11 +161,11 @@ namespace practicum_webshop
                 int amount = reader.GetInt32(1);
                 double price = reader.GetDouble(2);
                 
-                store.Items.Add(name); 
+                store.Items.Add(name + ", price: €" + price); 
             }
             reader.Close();
 
-            MySqlCommand cmd2 = new MySqlCommand("SELECT * from customer where username='" + ValueFromLogin + "';", con);
+            MySqlCommand cmd2 = new MySqlCommand("select * from customer where username='" + ValueFromLogin + "';", con);
             cmd2.ExecuteNonQuery();
             MySqlDataReader reader2 = cmd2.ExecuteReader();
             while (reader2.Read())
@@ -164,6 +175,27 @@ namespace practicum_webshop
                 Cash.Content = "€" + cash;
             }
             reader2.Close();
+        }
+
+        private void Button_ViewPurchases(object sender, RoutedEventArgs e)
+        {
+            string result = "";
+            MySqlConnection con = new MySqlConnection(c.dbConnection);
+            con.Open();
+
+            MySqlCommand cmd = new MySqlCommand("select * from purchases where customer = '" + ValueFromLogin + "'", con);
+            cmd.ExecuteNonQuery();
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                string product = reader.GetString(2);
+                string date = reader.GetDateTime(3).ToString();
+                result += product + ", purchased on: " + date + "\r\n";
+            }
+            reader.Close();
+
+            MessageBox.Show(result);
         }
     }
 }

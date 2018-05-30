@@ -9,7 +9,7 @@
     <Grid>
         <Label Content="Shopping cart" HorizontalAlignment="Left" Margin="147,101,0,0" VerticalAlignment="Top"/>
         <Label Content="Store" HorizontalAlignment="Left" Margin="480,101,0,0" VerticalAlignment="Top"/>
-        <ListBox SelectionMode="Multiple" Name="Cart" HorizontalAlignment="Left" Height="152" Margin="147,132,0,136" Width="190"/>
+        <ListBox SelectionMode="Multiple" Name="Cart" HorizontalAlignment="Left" Height="152" Margin="147,132,0,135" Width="190"/>
         <ListBox SelectionMode="Multiple" Name="store" Loaded="WindowLoaded"  HorizontalAlignment="Left" Height="152" Margin="480,132,0,0"  VerticalAlignment="Top" Width="190" />
         <Label Content="Money left:" HorizontalAlignment="Left" Margin="335,52,0,0" VerticalAlignment="Top"/>
         <Label Name="Cash" Content="Cash" HorizontalAlignment="Left" Margin="415,52,0,0" VerticalAlignment="Top"/>
@@ -17,8 +17,9 @@
 
         <Button Content="Refresh" HorizontalAlignment="Left" Margin="375,352,0,0" VerticalAlignment="Top" Width="75" Click="Refresh"/>
         <Label Name="Welkom" Content="Welkom" HorizontalAlignment="Left" Margin="40,34,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.358,0.385"/>
-        <Button Content="Buy" HorizontalAlignment="Left" Margin="375,315,0,0" VerticalAlignment="Top" Width="75" Click="Finish_Click"/>
+        <Button Content="Purchase first&#xD;&#xA;item in cart" HorizontalAlignment="Left" Margin="351,299,0,0" VerticalAlignment="Top" Width="115" Click="Finish_Click"/>
         <Button Content="Remove" HorizontalAlignment="Left" Margin="147,315,0,0" VerticalAlignment="Top" Width="75" Click="Button_Remove"/>
+        <Button Content="View purchases" HorizontalAlignment="Left" Margin="582,58,0,0" VerticalAlignment="Top" Width="104" Click="Button_ViewPurchases"/>
 
     </Grid>
 </Window>

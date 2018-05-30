@@ -26,8 +26,6 @@ namespace practicum_webshop
         public Window1()
         {
             InitializeComponent();
-            
-            
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -45,7 +43,6 @@ namespace practicum_webshop
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-
             MainWindow main = new MainWindow();
             main.Show();
             this.Close();
@@ -56,9 +53,8 @@ namespace practicum_webshop
             MySqlConnection con = new MySqlConnection(c.dbConnection);           
 
             con.Open();
-            MySqlCommand cmd = new MySqlCommand("SELECT count(*) from customer where username='" + UsernameInput.Text +"';", con);
+            MySqlCommand cmd = new MySqlCommand("select count(*) from customer where username='" + UsernameInput.Text +"';", con);
             int count = Convert.ToInt32(cmd.ExecuteScalar());
-
 
             if(count == 0)
             {

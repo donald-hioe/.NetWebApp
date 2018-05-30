@@ -31,17 +31,12 @@ namespace practicum_webshop
             InitializeComponent();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
         private void Login_Click(object sender, RoutedEventArgs e)
         {
             MySqlConnection con = new MySqlConnection(c.dbConnection);
 
             con.Open();
-            MySqlCommand cmd = new MySqlCommand("SELECT count(*) from customer where username='" + UsernameInput.Text + "' and password ='" + PasswordInput.Text +"';", con);
+            MySqlCommand cmd = new MySqlCommand("select count(*) from customer where username='" + UsernameInput.Text + "' and password ='" + PasswordInput.Text +"';", con);
             int count = Convert.ToInt32(cmd.ExecuteScalar());
 
             if (count == 1)
@@ -49,19 +44,16 @@ namespace practicum_webshop
                 Window2 win2 = new Window2(UsernameInput.Text);
                 win2.Show();
 
-                
                 this.Close();
             }
             else
             {
                 MessageBox.Show("Wrong password or username!");
-                
             }
         }
 
         private void Register_Click(object sender, RoutedEventArgs e)
         {
-
             Window1 win1 = new Window1();
             win1.Show();
             this.Close();
