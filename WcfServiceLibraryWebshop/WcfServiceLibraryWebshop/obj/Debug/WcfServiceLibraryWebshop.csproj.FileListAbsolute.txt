@@ -1,0 +1,7 @@
+C:\Users\donal\source\repos\WcfServiceLibraryWebshop\WcfServiceLibraryWebshop\obj\Debug\WcfServiceLibraryWebshop.csprojAssemblyReference.cache
+C:\Users\donal\source\repos\WcfServiceLibraryWebshop\WcfServiceLibraryWebshop\obj\Debug\WcfServiceLibraryWebshop.csproj.CoreCompileInputs.cache
+C:\Users\donal\source\repos\WcfServiceLibraryWebshop\WcfServiceLibraryWebshop\bin\Debug\WcfServiceLibraryWebshop.dll.config
+C:\Users\donal\source\repos\WcfServiceLibraryWebshop\WcfServiceLibraryWebshop\bin\Debug\WcfServiceLibraryWebshop.dll
+C:\Users\donal\source\repos\WcfServiceLibraryWebshop\WcfServiceLibraryWebshop\bin\Debug\WcfServiceLibraryWebshop.pdb
+C:\Users\donal\source\repos\WcfServiceLibraryWebshop\WcfServiceLibraryWebshop\obj\Debug\WcfServiceLibraryWebshop.dll
+C:\Users\donal\source\repos\WcfServiceLibraryWebshop\WcfServiceLibraryWebshop\obj\Debug\WcfServiceLibraryWebshop.pdb
