@@ -56,14 +56,18 @@ namespace practicum_webshop
             MySqlConnection con = new MySqlConnection(c.dbConnection);           
 
             con.Open();
-            MySqlCommand cmd = new MySqlCommand("SELECT count(*) from customer where username='" + UsernameInput.Text +"';", con);
+            MySqlCommand cmd = new MySqlCommand("SELECT count(*) from customer where username=@username;", con);
+            cmd.Parameters.AddWithValue("@username", UsernameInput.Text);
             int count = Convert.ToInt32(cmd.ExecuteScalar());
 
 
             if(count == 0)
             {
-                string query2 = "INSERT INTO customer (username, password, cash) VALUES('" + UsernameInput.Text + "','" + password.Content + "', 10.00);";
+                string query2 = "INSERT INTO customer (username, password, cash) VALUES(@username,@password,@cash);";                
                 MySqlCommand cmd2 = new MySqlCommand(query2, con);
+                cmd2.Parameters.AddWithValue("@username", UsernameInput.Text);
+                cmd2.Parameters.AddWithValue("@password", password.Content);
+                cmd2.Parameters.AddWithValue("@cash", 10.00);
                 cmd2.ExecuteNonQuery();
                 MessageBox.Show("Account with name " + UsernameInput.Text + " has been created!");
             }

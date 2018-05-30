@@ -41,7 +41,9 @@ namespace practicum_webshop
             MySqlConnection con = new MySqlConnection(c.dbConnection);
 
             con.Open();
-            MySqlCommand cmd = new MySqlCommand("SELECT count(*) from customer where username='" + UsernameInput.Text + "' and password ='" + PasswordInput.Text +"';", con);
+            MySqlCommand cmd = new MySqlCommand("SELECT count(*) from customer where username=@username and password =@password;", con);
+            cmd.Parameters.AddWithValue("@username", UsernameInput.Text);
+            cmd.Parameters.AddWithValue("@password", PasswordInput.Text);
             int count = Convert.ToInt32(cmd.ExecuteScalar());
 
             if (count == 1)
