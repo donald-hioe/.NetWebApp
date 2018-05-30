@@ -49,12 +49,12 @@ namespace practicum_webshop
                 return;
             }
 
-            MySqlConnection con = new MySqlConnection(c.dbConnection);
-            con.Open();
-
             int amount = 0;
             double price = 0.0;
             double currentCash = 0.0;
+
+            MySqlConnection con = new MySqlConnection(c.dbConnection);
+            con.Open();
 
             MySqlCommand cmd = new MySqlCommand("select amount, price from product where name='" + Cart.Items[0] + "';", con);
             cmd.ExecuteNonQuery();
@@ -76,9 +76,9 @@ namespace practicum_webshop
             }
             reader2.Close();
 
-            if (currentCash < 0)
+            if ((currentCash - price) <= 0)
             {
-                MessageBox.Show("You cannot finalize your purchases, you do not have enough money left");
+                MessageBox.Show("You cannot finalize the purchase, you do not have enough money left");
                 //return to skip the database updates and not make the purchase
                 return;
             }
@@ -91,9 +91,12 @@ namespace practicum_webshop
             MySqlCommand cmd5 = new MySqlCommand("insert into webshop.purchases (customer, product, date) values ('" + ValueFromLogin + "', '" + Cart.Items[0] + "', now()); ", con);
             cmd5.ExecuteNonQuery();
 
+            //And remove the item from your cart
+            var productToPurchase = Cart.Items[0];
+            Cart.Items.Remove(productToPurchase);
+
             //Update GUI
-            Cash.Content = "€" + currentCash;
-            Cart.Items.Remove(Cart.Items[0]);
+            Cash.Content = "€" + (currentCash - price);
             MessageBox.Show("You succesfully made a purchase");
         }
 
@@ -123,7 +126,7 @@ namespace practicum_webshop
                     Cart.Items.Remove(selectedItems[i]);
             }
             else
-                MessageBox.Show("Select the item you want to remove from your cart first");
+                MessageBox.Show("select the item you want to remove from your cart first");
         }
 
         private void Refresh(object sender, RoutedEventArgs e)
@@ -131,7 +134,7 @@ namespace practicum_webshop
             MySqlConnection con = new MySqlConnection(c.dbConnection);
 
             con.Open();
-            MySqlCommand cmd = new MySqlCommand("SELECT * from product where amount >= 0;", con);
+            MySqlCommand cmd = new MySqlCommand("select * from product where amount >= 0;", con);
             cmd.ExecuteNonQuery();
             store.Items.Clear();
             MySqlDataReader reader = cmd.ExecuteReader();           

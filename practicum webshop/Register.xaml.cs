@@ -58,7 +58,7 @@ namespace practicum_webshop
 
             if(count == 0)
             {
-                string query2 = "INSERT INTO customer (username, password, cash) VALUES('" + UsernameInput.Text + "','" + password.Content + "', 10.00);";
+                string query2 = "insert into customer (username, password, cash) values('" + UsernameInput.Text + "','" + password.Content + "', 10.00);";
                 MySqlCommand cmd2 = new MySqlCommand(query2, con);
                 cmd2.ExecuteNonQuery();
                 MessageBox.Show("Account with name " + UsernameInput.Text + " has been created!");
